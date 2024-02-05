@@ -1,3 +1,3 @@
-import {initChessGame} from "./boardInitialization/boardInitialization.js";
+import { initChessGame } from "./boardInitialization/boardInitialization.js";
 
 initChessGame();

@@ -6,18 +6,37 @@ const createEmptyBoard = () => {
     return board;
 };
 
-const displayBoard = (board) => {
+const initPieces = (board, pieces, startRow) => {
+    board[startRow] = pieces[0];
+    board[startRow + 1] = pieces[1];
+    return board;
+}
+
+const initAllPieces = (board) => {
+    const BLACK_PIECES = [
+        ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
+        ['♟', '♟', '♟', '♟', '♟', '♟', '♟', '♟'],
+    ];
+    const WHITE_PIECES = [
+        ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙'],
+        ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖']
+    ];
+    return initPieces(initPieces(board, BLACK_PIECES, 0), WHITE_PIECES, 6);
+}
+
+const initChessGame = () => {
+    displayBoard(initAllPieces(createEmptyBoard()));
+};
+
+function displayBoard(board) {
     board.forEach(row => {
         console.log(row.map(piece => piece || '-').join(' '));
     });
 };
 
-const initChessGame = () => {
-    const board = createEmptyBoard();
-    displayBoard(board);
-};
-
 export {
+    displayBoard,
     createEmptyBoard,
-    initChessGame
+    initAllPieces,
+    initChessGame,
 }
