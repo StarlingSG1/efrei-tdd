@@ -1,5 +1,6 @@
 import {describe, expect, test} from 'vitest'
-import { createEmptyBoard, initAllPieces, initChessGame } from "./boardInitialization";
+import { createEmptyBoard, initAllPieces } from "./boardInitialization";
+import { moveRook, isPathClear } from "../piecesActions/Rook/rook.js";
 
 
 describe('Should init the board to start the game', () => {
@@ -34,4 +35,3 @@ describe('Should init the board to start the game', () => {
         )
     })
 })
-

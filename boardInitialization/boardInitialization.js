@@ -25,7 +25,9 @@ const initAllPieces = (board) => {
 }
 
 const initChessGame = () => {
-    displayBoard(initAllPieces(createEmptyBoard()));
+    const startBoard = initAllPieces(createEmptyBoard())
+    // displayBoard(startBoard);
+    return startBoard;
 };
 
 function displayBoard(board) {
